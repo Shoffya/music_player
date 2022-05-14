@@ -1,0 +1,748 @@
+/* General */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --primary: hsla(7, 79%, 46%, 0.502);
+    --secondary: hsla(241, 69%, 47%, 0.502);
+    --tertiary: hsla(303, 65%, 31%, 0.502);
+    --white: #ffffff;
+    --black: #292929;
+    --pink: #e2abab;
+    --violet: #5e084f;
+    --violetlight: #a72190;
+    --lightblack: #515c6f;
+    --darkblack: #e4ebf8;
+    --darkwhite: #cecaca;
+    --pinkshadow: #ffcbdd;
+    --darkshadow: #ffffff93;
+    --lightshadow: #000000a4;
+    --darkswitch: #2b2b46;
+    --lightswitch: #7878c7;
+}
+
+/* Page */
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.wrapper {
+    width: 380px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    padding: 25px 30px;
+}
+
+.wrapper i {
+    cursor: pointer;
+}
+
+.top-bar,
+.progress-area .timer,
+.controls,
+.music-list .header,
+.music-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.top-bar i {
+    font-size: 30px;
+}
+
+.top-bar span {
+    font-size: 18px;
+}
+
+.menu1 {
+    display: block;
+    position: absolute;
+    display: block;
+    position: absolute;
+    width: 40%;
+    top: 70px;
+    right: 7.5%;
+    padding-top: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    box-shadow: -10px 15px 16px rgba(0, 0, 0, 0.815);
+    z-index: 10;
+}
+
+.menu2 {
+    display: block;
+    position: absolute;
+    display: block;
+    position: absolute;
+    width: 40%;
+    top: 70px;
+    left: 7.5%;
+    padding-top: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: -10px 15px 16px rgba(0, 0, 0, 0.815);
+    z-index: 10;
+}
+
+.menu2 h5 {
+    font-size: 1.3rem;
+}
+
+.menu1 ul li,
+.menu2 ul li {
+    cursor: pointer;
+    list-style: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.menu1 ul li a,
+.menu2 ul li a {
+    text-decoration: none;
+}
+
+.menu1 ul li a:hover,
+.menu2 ul li a:hover {
+    color: var(--violetlight);
+}
+
+.menu2 ul li a.active {
+    color: var(--violetlight);
+}
+
+#top-bar .menu1,
+#top-bar .menu2 {
+    display: none;
+}
+
+#top-bar.active1 .menu1,
+#top-bar.active2 .menu2 {
+    display: flex;
+}
+
+.switch {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.switch .switch-text {
+    padding-right: 0.3rem;
+    font-size: 1rem;
+}
+
+.switch .switch-wrapper {
+    display: inline-block;
+    width: 45px;
+    height: 24px;
+    position: relative;
+}
+
+.switch .switch-wrapper .switch-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 40px;
+    background-color: var(--lightblack);
+}
+
+.switch .switch-wrapper input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch .switch-wrapper .switch-button::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 2px;
+    bottom: 2px;
+    border-radius: 50%;
+    transition: 0.4s all ease;
+    background: white;
+}
+
+.switch .switch-wrapper input:checked+.switch-button {
+    background-color: var(--violetlight);
+}
+
+.switch .switch-wrapper input:checked+.switch-button::before {
+    transform: translateX(21px);
+}
+
+.img-area {
+    height: 80%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.img-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.song-details {
+    text-align: center;
+    margin: 10px 0;
+    margin: 30px 0;
+}
+
+.song-details .name {
+    font-size: 21px;
+}
+
+.song-details .artist {
+    opacity: 0.9;
+    font-size: 18px;
+}
+
+.song-details a {
+    text-decoration: none;
+}
+
+.progress-area {
+    height: 6px;
+    width: 100%;
+    background: #cecece;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.progress-area .progress-bar {
+    height: inherit;
+    width: 0%;
+    position: relative;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+}
+
+.progress-area .timer {
+    margin-top: 2px;
+}
+
+.timer span {
+    font-size: 13px;
+}
+
+.controls {
+    margin-top: 30px;
+}
+
+.controls .repeat,
+.controls .list {
+    font-size: 20px;
+}
+
+.controls .prev,
+.controls .next {
+    font-size: 30px;
+}
+
+.controls .play,
+.controls .pause {
+    font-size: 30px;
+    color: var(--white);
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+}
+
+.pause {
+    display: none;
+}
+
+.music-list {
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 15px;
+    transition: all 0.14s ease-out;
+}
+
+.music-list.show {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.music-list .header .row {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+}
+
+.header .row i {
+    cursor: default;
+}
+
+.header .row span {
+    margin-left: 5px;
+}
+
+.header #close {
+    font-size: 22px;
+    color: var(--lightblack);
+}
+
+.music-list ul {
+    padding-left: 10px 0;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.music-list ul::-webkit-scrollbar {
+    width: 0px;
+}
+
+.music-list ul li {
+    cursor: pointer;
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    color: var(--lightblack);
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.music-list ul li:last-child {
+    border-bottom: 0px;
+}
+
+.music-list ul li .row span {
+    font-size: 17px;
+}
+
+.music-list ul li .row p {
+    opacity: 0.9;
+}
+
+.music-list ul li .audio-duration {
+    font-size: 16px;
+}
+
+.music-list ul li.now {
+    color: var(--violet);
+    pointer-events: none;
+    background: #5e085054;
+    border-radius: 6px;
+    padding: 0 10px;
+
+}
+
+.rotateImg {
+    -webkit-animation: spin 3s linear infinite;
+    -moz-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.rotateImgPause {
+    -webkit-animation: spin 3s linear infinite;
+    -moz-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-animation: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+
+.desktop {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width:379px) {
+    .wrapper {
+        width: 300px;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 50%;
+    }
+}
+
+@media (max-width:300px) {
+    .wrapper {
+        width: 280px;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 60%;
+    }
+}
+
+@media (max-width:280px) {
+    .wrapper {
+        width: 250px;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 70%;
+    }
+}
+
+@media (max-width:250px) {
+    .wrapper {
+        width: 230px;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 80%;
+    }
+}
+
+@media (max-width:230px) {
+    .wrapper {
+        width: 200px;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .controls .repeat,
+    .controls .list {
+        font-size: 15px;
+    }
+
+    .controls .prev,
+    .controls .next {
+        font-size: 20px;
+    }
+
+    .controls .play,
+    .controls .pause {
+        font-size: 20px;
+        padding-left: 5.5px;
+        padding-right: 5.5px;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 90%;
+    }
+}
+
+@media (max-width:200px) {
+    .wrapper {
+        width: 180px;
+    }
+}
+
+@media (max-width:170px) {
+
+    .controls .repeat,
+    .controls .list {
+        font-size: 10px;
+    }
+
+    .controls .prev,
+    .controls .next {
+        font-size: 15px;
+    }
+
+    .controls .play,
+    .controls .pause {
+        font-size: 15px;
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .play,
+    .pause {
+        margin-left: 5%;
+    }
+
+    .menu1,
+    .menu2 {
+        width: 100%;
+    }
+}
+
+/* Checkbox Dark/Light Mode */
+
+body.light {
+    background: var(--lightswitch);
+}
+
+body.dark {
+    background: var(--darkswitch);
+}
+
+.wrapperDark {
+    background: var(--black);
+    box-shadow: 0px 0px 20px var(--darkshadow);
+}
+
+.wrapperLight {
+    background: var(--white);
+    box-shadow: 0px 0px 20px var(--lightshadow);
+}
+
+.lightMode i {
+    color: var(--lightblack);
+}
+
+.darkMode i {
+    color: var(--darkblack);
+}
+
+.lightMode span {
+    color: var(--lightblack);
+}
+
+.darkMode span {
+    color: var(--darkblack);
+}
+
+.menu1Light,
+.menu2Light {
+    background: var(--white);
+}
+
+.menu1Dark,
+.menu2Dark {
+    background: var(--black);
+}
+
+.menu1Light ul li a,
+.menu2Light ul li a {
+    color: var(--lightblack);
+}
+
+.menu1Dark ul li a,
+.menu2Dark ul li a {
+    color: var(--darkblack);
+}
+
+.menu2Light h5 {
+    color: black;
+}
+
+.menu2Dark h5 {
+    color: white;
+}
+
+.imgLight {
+    box-shadow: 0px 6px 12px var(--lightshadow);
+}
+
+.imgDark {
+    box-shadow: 0px 6px 12px var(--darkshadow);
+}
+
+.songDetailsLight,
+.songDetailsLight a {
+    color: var(--lightblack);
+}
+
+.songDetailsDark,
+.songDetailsDark a {
+    color: var(--darkblack);
+}
+
+.songDetailsLight a::after {
+    content: '';
+    width: 140px;
+    height: 3px;
+    background-color: var(--lightblack);
+    margin: 0 auto;
+    margin-top: 2px;
+    display: block;
+}
+
+.songDetailsDark a::after {
+    content: '';
+    width: 140px;
+    height: 3px;
+    background-color: var(--darkblack);
+    margin: 0 auto;
+    margin-top: 2px;
+    display: block;
+}
+
+.timerLight span {
+    color: var(--lightblack);
+}
+
+.timerDark span {
+    color: var(--darkblack);
+}
+
+.controlsLight .repeat,
+.controlsLight .list,
+.controlsLight .prev,
+.controlsLight .next {
+    color: var(--violet);
+}
+
+.controlsDark .repeat,
+.controlsDark .list,
+.controlsDark .prev,
+.controlsDark .next {
+    color: var(--violetlight);
+}
+
+.controlsLight .play,
+.controlsLight .pause {
+    border: 5px solid rgb(233, 233, 233);
+}
+
+.controlsDark .play,
+.controlsDark .pause {
+    border: 5px solid rgb(68, 68, 68);
+}
+
+.controlsLight .play:hover,
+.controlsLight .pause:hover {
+    box-shadow: 0px 0px 15px var(--violet);
+}
+
+.controlsDark .play:hover,
+.controlsDark .pause:hover {
+    box-shadow: 0px 0px 15px var(--pink);
+}
+
+.lightMusicList {
+    background: var(--white);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    color: var(--lightblack);
+}
+
+.darkMusicList {
+    background: var(--black);
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    color: var(--darkblack);
+}
+
+.lightMusicList i {
+    color: var(--lightblack);
+}
+
+.darkMusicList i {
+    color: var(--darkblack);
+}
+
+.lightMusicList ul li {
+    color: var(--lightblack);
+}
+
+.darkMusicList ul li {
+    color: var(--darkblack);
+}
+
+.lightMusicList ul li:hover {
+    color: var(--violet);
+    background: #5e085054;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
+.darkMusicList ul li:hover {
+    color: var(--pink);
+    background: #d619b754;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
+.lightMusicList ul li.now {
+    color: var(--violet);
+    pointer-events: none;
+    background: #5e085054;
+    border-radius: 6px;
+    padding: 0 10px;
+
+}
+
+.darkMusicList ul li.now {
+    color: var(--pink);
+    background: #d619b754;
+    border-radius: 6px;
+    padding: 0 10px;
+
+}
