@@ -9,6 +9,7 @@ let controlsModeDL = document.getElementById('controls');
 let timerModeDL = document.getElementById('timer');
 let menu1ModeDL = document.getElementById('menu1');
 let menu2ModeDL = document.getElementById('menu2');
+let menu3ModeDL = document.getElementById('menu3');
 
 mode.addEventListener('change', () => {
     document.body.classList.toggle('light');
@@ -38,9 +39,11 @@ mode.addEventListener('change', () => {
 
         menu1ModeDL.classList.remove('menu1Dark');
         menu2ModeDL.classList.remove('menu2Dark');
+        menu3ModeDL.classList.remove('menu3Dark');
 
         menu1ModeDL.classList.add('menu1Light');
         menu2ModeDL.classList.add('menu2Light');
+        menu3ModeDL.classList.add('menu3Light');
     }
 })
 
@@ -72,8 +75,10 @@ mode.addEventListener('change', () => {
 
         menu1ModeDL.classList.remove('menu1Light');
         menu2ModeDL.classList.remove('menu2Light');
+        menu3ModeDL.classList.remove('menu3Light');
 
         menu1ModeDL.classList.add('menu1Dark');
         menu2ModeDL.classList.add('menu2Dark');
+        menu3ModeDL.classList.add('menu3Dark');
     }
 })

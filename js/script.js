@@ -11,16 +11,26 @@ const wrapper = document.querySelector(".wrapper"),
     showMoreBtn = wrapper.querySelector("#more-music"),
     hideMusicBtn = musicList.querySelector("#close"),
     menuBtn1 = document.querySelector("#btnMenu1"),
-    menuBtn2 = document.querySelector("#btnMenu2");
+    menuBtn2 = document.querySelector("#btnMenu2"),
+    menuBtn3 = document.querySelector("#contact");
 
 menuBtn1.addEventListener('click', () => {
     const topBarM1 = document.querySelector("#top-bar");
     topBarM1.classList.toggle('active1');
+
+    if (topBarM1.classList.contains('active3')) {
+        topBarM1.classList.remove('active3');
+    }
 });
 
 menuBtn2.addEventListener('click', () => {
     const topBarM1 = document.querySelector("#top-bar");
     topBarM1.classList.toggle('active2');
+});
+
+menuBtn3.addEventListener('click', () => {
+    const topBarM1 = document.querySelector("#top-bar");
+    topBarM1.classList.toggle('active3');
 });
 
 let musicIndex = 0;

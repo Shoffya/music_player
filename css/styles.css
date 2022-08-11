@@ -23,7 +23,7 @@
     --black: #292929;
     --pink: #e2abab;
     --violet: #5e084f;
-    --violetlight: #a72190;
+    --violetlight: #d642be;
     --lightblack: #515c6f;
     --darkblack: #e4ebf8;
     --darkwhite: #cecaca;
@@ -73,20 +73,28 @@ body {
     font-size: 18px;
 }
 
-.menu1 {
-    display: block;
-    position: absolute;
-    display: block;
-    position: absolute;
+.menu1,
+.menu3 {
     width: 40%;
-    top: 70px;
     right: 7.5%;
     padding-top: 10px;
+    display: block;
+    position: absolute;
+    display: block;
+    position: absolute;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-top-left-radius: 15px;
     box-shadow: -10px 15px 16px rgba(0, 0, 0, 0.815);
     z-index: 10;
+}
+
+.menu1 {
+    top: 70px;
+}
+
+.menu3 {
+    top: 180px;
 }
 
 .menu2 {
@@ -110,7 +118,8 @@ body {
 }
 
 .menu1 ul li,
-.menu2 ul li {
+.menu2 ul li,
+.menu3 ul li {
     cursor: pointer;
     list-style: none;
     font-size: 1rem;
@@ -118,12 +127,14 @@ body {
 }
 
 .menu1 ul li a,
-.menu2 ul li a {
+.menu2 ul li a,
+.menu3 ul li a {
     text-decoration: none;
 }
 
 .menu1 ul li a:hover,
-.menu2 ul li a:hover {
+.menu2 ul li a:hover,
+.menu3 ul li a:hover {
     color: var(--violetlight);
 }
 
@@ -132,12 +143,14 @@ body {
 }
 
 #top-bar .menu1,
-#top-bar .menu2 {
+#top-bar .menu2,
+#top-bar .menu3 {
     display: none;
 }
 
 #top-bar.active1 .menu1,
-#top-bar.active2 .menu2 {
+#top-bar.active2 .menu2,
+#top-bar.active3 .menu3 {
     display: flex;
 }
 
@@ -581,22 +594,26 @@ body.dark {
 }
 
 .menu1Light,
-.menu2Light {
+.menu2Light,
+.menu3Light {
     background: var(--white);
 }
 
 .menu1Dark,
-.menu2Dark {
+.menu2Dark,
+.menu3Dark {
     background: var(--black);
 }
 
 .menu1Light ul li a,
-.menu2Light ul li a {
+.menu2Light ul li a,
+.menu3Light ul li a {
     color: var(--lightblack);
 }
 
 .menu1Dark ul li a,
-.menu2Dark ul li a {
+.menu2Dark ul li a,
+.menu3Dark ul li a {
     color: var(--darkblack);
 }
 
